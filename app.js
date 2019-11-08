@@ -1,15 +1,14 @@
 document.addEventListener('DOMContentLoaded',()=> {
-	var xHttp= new XMLHttpRequest();
-	procedure(xHttp);
+	procedure();
 });
 
 
-
-function Searchprocedure(request){
-	var url='http://localhost:8080/superheroes.php';
-	request.onreadystatechange=fetching;
-	request.open("GET",url);
-	request.send();
+var xHttp= new XMLHttpRequest();
+function Searchprocedure(){
+	var url='superheroes.php';
+	xHttp.onreadystatechange=fetching;
+	xHttp.open("GET",url,true);
+	xHttp.send();
 }
 
 function fetching(){
@@ -23,6 +22,6 @@ function fetching(){
 		}
 } 
 
-function procedure(request){
-	document.getElementById("Search").addEventListener('click', Searchprocedure(request));
+function procedure(){
+	document.getElementById("Search").addEventListener('click', Searchprocedure);
 }
