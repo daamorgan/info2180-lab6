@@ -1,13 +1,28 @@
-
 <!DOCTYPE html>
-	<html>
-		<head>
-			<title></title>
-			<script src="app.js"> </script>
-		</head>
+    <html lang="en">
+      <head>
+      	<title>INFO2180 Lab 6</title>
+        <script src="https://code.jquery.com/jquery-3.3.1.js"> </script> 
+        <script src="app.js"> </script>
+        <link href="styles.css" rel="stylesheet" type="text/css"/>
+    </head>
 
-		<body>
-			<button id="Search"> Search</button>
+    <body>
+	    <h1>Avengers Character Search</h1>
+	        <form>
+        	    <p id=Instruction>Search by Full Name or Alias</p>
+				<br>
+				<div id=buttons>
+				<input type="search" name="Searchfield" id="searchfield" placeholder="e.g.Captain America or Steve Rogers">
+				<input type="submit" name="SearchButton" value="Search" id=Searchbtn>
+                  </div>
+              </form>
+          <h2>Result</h2>
 
-</body>
+	    <div id="result">
+	    
+	</div>
+
+    </body>
 </html>
+

@@ -1,0 +1,74 @@
+body{
+    display:flex;
+    flex-direction:column;
+   justify-content:center;
+    align-items:center;
+    font-family:arial;
+    font-weight: bold;
+    background-color:#D3D3D3;
+    
+}
+
+
+h1{ 
+    width: 100%;
+    color: #FFFFFF;
+    background-color: #1E90FF;
+    border-color: red;
+    border-width:10px; 
+    border-style: outset;
+    padding-top:10px;
+    margin-top:-7px;
+    text-align: center;
+}
+
+#searchfield{
+    background-color:white;
+    border-radius:1px;
+    width:95%;
+}
+
+li{
+    margin-left:-320px;
+}
+
+#Searchbtn{
+    display: inline-block;
+    background-color: red ;
+    color: white;
+    border-radius: 5px;
+}
+
+form{
+    width:70%;
+}
+
+#buttons{
+     display: flex; 
+     direction: ltr;
+}
+
+#result{
+    width:70%;
+}
+
+h2{
+    border-bottom: 3px solid white;
+    width:50%;
+}
+h3{
+    font-weight: bold;
+    padding-bottom: -10px;
+    font-size: medium;
+
+h4,p{
+    font-weight: normal;
+    padding-bottom: -10px;
+    font-size: small;
+    
+}    
+
+#Instruction{
+    font-weight: bold;
+}
+

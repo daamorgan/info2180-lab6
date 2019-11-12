@@ -1,27 +1,28 @@
-document.addEventListener('DOMContentLoaded',()=> {
-	procedure();
-});
+window.onload = function() {
 
+  var xHttp;
 
-var xHttp= new XMLHttpRequest();
-function Searchprocedure(){
-	var url='superheroes.php';
-	xHttp.onreadystatechange=fetching;
-	xHttp.open("GET",url,true);
-	xHttp.send();
-}
+  document.getElementById('Searchbtn').addEventListener('click', function(element) {
+  element.preventDefault();
 
-function fetching(){
-		if (xHttp.readyState===XMLHttpRequest.DONE){
-			if (xHttp.status===200){
-				var response=xHttp.responseText;
-				alert (response);
-			}else{
-				alert("A request error");
-			}
-		}
-} 
+    xHttp = new XMLHttpRequest();
+    var hero=document.getElementById("searchfield").value;
+    var url = "superheroes.php?query="+hero;
+    xHttp.onreadystatechange = fetching;
+    xHttp.open('GET', url);
+    xHttp.send();
+  });
 
-function procedure(){
-	document.getElementById("Search").addEventListener('click', Searchprocedure);
-}
+  function fetching() {
+    if (xHttp.readyState === XMLHttpRequest.DONE) {
+      if (xHttp.status === 200) {
+        var result = document.querySelector('#result');
+        result.innerHTML =xHttp.responseText;
+      } else {
+        alert('There was a problem with the request.');
+      }
+    }
+  }
+
+};
+

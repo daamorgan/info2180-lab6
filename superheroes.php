@@ -63,10 +63,34 @@ $superheroes = [
   ], 
 ];
 
-?>
 
-<ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
-</ul>
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+  $count=0;
+  if (!empty($_GET['query']) &&  isset($_GET['query'])) {
+     $query = filter_input(INPUT_GET, 'query', FILTER_SANITIZE_SPECIAL_CHARS);
+     foreach($superheroes as $superhero){
+       if( $superhero['name']===$_GET['query'] || $superhero['alias']===$_GET['query'] ){
+        ?>
+        <h3> <?= strtoupper($superhero['alias']);?> </h3>
+        <h4> A.K.A <?= $superhero['name'];?> </h4>
+        <p> <?= $superhero['biography'];?> </p>
+        <?php
+          $count++;
+          break;
+       }
+     }
+     if($count===0){
+       echo "Superhero not found";
+     }
+  }else{
+    
+  ?>
+    <ul>
+      <?php foreach ($superheroes as $superhero): ?>
+        <li><?= $superhero['alias']; ?></li>
+        <?php endforeach; ?>
+    </ul>
+    <?php  
+    }
+}
+?>
